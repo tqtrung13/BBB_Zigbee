@@ -129,8 +129,8 @@ int readKeyboard(unsigned char *buffer) {
 	FD_ZERO(&inputs);
 	FD_SET(0, &inputs);
 	testfds = inputs;
-	timeout.tv_sec = 1;
-	timeout.tv_usec = 0;
+	timeout.tv_sec = 3;
+	timeout.tv_usec = 500000;
 	result = select(FD_SETSIZE, &testfds, (fd_set*) 0, (fd_set*) 0, &timeout);
 
 	switch (result) {
