@@ -1,0 +1,326 @@
+Mon Jul 18 10:48:02 2016
+The BeagleBone is amazing! Given the proliferation of smartphones, the idea
+of holding in one hand a computer that is capable of performing two billion
+instructions per second is easy to take for granted—but the fact that you can
+modify the hardware and software of such a small yet powerful device and
+adapt it to suit your own needs and create your own inventions is nothing short
+of amazing. Even better, you can purchase it for as little as $45–$55.
+The BeagleBone board on its own is too complex a device to be used by a
+general audience; it is the ability of the BeagleBone to run embedded Linux that
+makes the resulting platform accessible, adaptable, and powerful. Together,
+Linux and embedded systems enable ease of development for devices that
+can meet future challenges in smart buildings, the Internet of Things (IoT),
+robotics, smart energy, smart cities, human‐computer interaction (HCI), cyber‐
+physical systems, 3D printing, advanced vehicular systems, and many, many
+more applications.
+The integration of high‐level Linux software and low‐level electronics represents a paradigm shift in embedded systems development. It is revolutionary
+that you can build a low‐level electronics circuit and then install a Linux web
+server, using only a few short commands, so that the circuit can be controlled
+over the Internet. You can easily use the BeagleBone as a general‐purpose Linux
+computer, but it is vastly more challenging and interesting to get underneath
+the hood and fully interface it to electronic circuits of your own design—and
+that is where this book comes in!
+This book should have widespread appeal for inventors, makers, students,
+entrepreneurs, hackers, artists, dreamers—in short, anybody who wants to bring
+
+xxvi Introduction
+the power of embedded Linux to their products, inventions, creations, or projects
+and truly understand the BeagleBone in detail. This is not a recipe book—with
+few exceptions, everything demonstrated here is explained at a level that will
+enable you to design, build, and debug your own extensions of the concepts
+presented here. Nor is there any grand design project at the end of this book
+for which you must purchase a prescribed set of components and peripherals
+in order to achieve a very specific outcome. Rather, this book is about providing you with enough background knowledge and “under‐the‐hood” technical
+details to enable and motivate your own explorations.
+I strongly believe in learning by doing, so I present low‐cost, widely available
+hardware examples in order that you can follow along. Using these hands‐on
+examples, I describe what each step means in detail, so that when you substitute
+your own hardware components, modules, and peripherals you will be able to
+adapt the content in this book to suit your needs. As for that grand project or
+invention—that is left up to you and your imagination!
+When writing this book I had the following aims and objectives:
+■ To explain embedded Linux and its interaction with electronic circuits—
+taking you through the topics from mystery to mastery!
+■ To provide in‐depth information and instruction on the Linux, electronics, and programming skills that are required to master a pretty wide and
+comprehensive variety of topics in this domain.
+■ To create a collection of practical “Hello World” hardware and software
+examples on each and every topic in the book, from low‐level interfacing,
+general‐purpose input/outputs (GPIOs), analog‐to‐digital converters
+(ADCs), buses, and UARTs, to high‐level libraries such as OpenCV, Qt,
+and complex and powerful topics, such as real‐time interfacing with the
+PRU‐ICSS.
+■ To ensure that each circuit and segment of code is specifically designed
+to work on the BeagleBone. Every single circuit and code example in this
+book was built and tested on the BeagleBone.
+■ To use the “Hello World” examples to build a library of code that you
+can use and adapt for your own BeagleBone projects.
+■ To make all of the code available on GitHub in an easy‐to‐use form.
+■ To support this book with strong digital content, such as the videos
+on the DerekMolloyDCU YouTube channel, and a custom website
+www.exploringbeaglebone.com, which has been developed specifically
+to support this book.
+■ To ensure that by the end of this book you have everything you need to
+imagine, create, and build advanced BeagleBone projects.
+
+Introduction xxvii
+Why the BeagleBone Black?
+The BeagleBone Black is a powerful single‐board computer (SBC), and while there
+are other SBCs available on the market such as the Raspberry PI and the Intel
+Galileo, the BeagleBone has one key differentiator—it was built to be interfaced
+to! For example, the BeagleBone's microprocessor even contains two additional
+on‐chip microcontrollers that can be used for real‐time interfacing—an area in
+which other Linux SBCs have significant difficulty.
+Unlike most other SBCs, the BeagleBone is fully open source hardware. The
+BeagleBoard.org Foundation provides source schematics, hardware layout, a
+full bill of materials, and technical reference manuals, enabling you to modify
+the design of the BeagleBone platform and integrate it into your own product.
+In fact, you can even fork the hardware design on Upverter (www.upverter.com)
+under a Creative Commons Attribution‐ShareAlike license (see tiny.cc/ebb002
+for the full schematics). This is a very useful feature should you decide to take
+your newest invention to market!
+How This Book Is Structured
+There is no doubt that some of the topics in this book are quite complex—the
+BeagleBone is a complex device! However, everything that you need to master
+the device is present in the book within three major parts:
+■ Part I: BeagleBone Basics
+■ Part II: Interfacing, Controlling, and Communicating
+■ Part III: Advanced BeagleBone Systems
+In the first part in the book, I introduce the hardware and software of the
+BeagleBone platform in Chapters 1 and 2, and subsequently provide three
+primer chapters:
+■ Chapter 3 : Exploring Embedded Linux Systems
+■ Chapter 4 : Interfacing Electronics
+■ Chapter 5 : Practical BeagleBone Programming
+If you are a Linux expert, electronics wizard, and/or software guru, then feel
+free to skip the primer chapters; however, for everyone else I have put in place a
+concise but detailed set of materials to ensure that you gain all the knowledge
+required to effectively and safely interface to the BeagleBone.
+In the second part of the book, Chapters 6 to 9, I provide detailed information on interfacing to the BeagleBone GPIOs, analog inputs, buses (I2C, SPI),
+UART devices, and USB peripherals. You'll learn how you can configure a
+
+xxviii Introduction
+cross‐compilation environment so that you can build large‐scale software applications for the BeagleBone. This part also describes how you can combine
+hardware and software in order to provide the BeagleBone with the ability to
+interact effectively with its physical environment.
+The final part of the book, Chapters 10 to 13, describe how the BeagleBone
+can be used for advanced applications such as Internet of Things (IoT); rich
+user interfaces; images, video, and audio; and real‐time interfacing. Along
+the way you will meet many technologies, including TCP/IP, ThingSpeak,
+Xively, PoE, Wi‐Fi, Bluetooth, cron, Apache, PHP, e‐mail, IFTTT, VNC,
+GTK+, Qt, XML, multi‐threading, client/server programming, V4L2, video
+streaming, OpenCV, Boost, USB audio, Bluetooth A2DP, text‐to‐speech, and
+the PRU‐ICSS.
+Conventions Used in This Book
+This book is filled with source code examples and snippets that you can use to
+build your own applications. Code and commands are shown as follows:
+This is what source code looks like.
+When presenting work performed in a Linux terminal it is often necessary
+to display both input and output in a single example. A bold type is used to
+distinguish the user input from the output—for example:
+molloyd@beaglebone:~$ ping www.exploringbeaglebone.com
+PING lb1.reg365.net (195.7.226.20) 56(84) bytes of data.
+64 bytes from lb1.reg365.net (195.7.226.20): icmp_req=1 ttl=55 time=25.6 ms
+64 bytes from lb1.reg365.net (195.7.226.20): icmp_req=2 ttl=55 time=25.6 ms
+...
+The $ prompt indicates that a regular Linux user is executing a command,
+and a # prompt indicates that a Linux superuser is executing a command. The
+ellipsis symbol “...” is used whenever code or output not vital to understanding
+a topic has been cut. Editing the output like this enables you to focus on only
+the most useful information. You are encouraged to repeat the steps in this book
+yourself, whereupon you will see the full output. In addition, the full source
+code for all examples is provided along with the book.
+There are some additional styles in the text. For example:
+■ New terms and important words appear in italics when introduced.
+■ Keyboard strokes appear like this: Ctrl+C.
+■ All URLs in the book refer to HTTP addresses and appear like this:
+www.exploringbeaglebone.com.
+
+Introduction xxix
+■ A URL shortening service is used to create aliases for long URLs that are
+presented in the book. These aliases have the form tiny.cc/ebb102 (e.g.,
+link two in Chapter 1 ). Should the link address change after this book is
+published, the alias will be updated.
+There are several features used in this book to identify when content is of
+particular importance or when additional information is available:
+W A R N I N G This type of feature contains important information that can help you
+avoid damaging your BeagleBone.
+N O T E This type of feature contains useful additional information, such as links to
+digital resources and useful tips, which can make it easier to understand the task at
+hand.
+FEATURE TITLE
+This type of feature goes into detail about the current topic or a related topic.
+What You'll Need
+Ideally you should have a BeagleBone Black before you begin reading this book
+so that you can follow along with the numerous examples in the text. Presently
+the board is manufactured by both CircuitCo and Embest—the boards from
+either manufacturer are compatible with the designs and operations in this
+book. You can purchase one of the boards in the U.S. from online stores such as
+Adafruit Industries, Digi‐Key, Mouser, SparkFun, and Jameco Electronics. They
+are available internationally from stores such as Farnell, Radionics, Watterott,
+and Tigal.
+A full list of recommended and optional accessories for the BeagleBone is
+provided in Chapter 1—if you do not yet have a BeagleBone, it would be worth
+reading that chapter before placing an order. In addition, each chapter contains
+a list of the electronics components and modules required if you wish to follow along with the text. The book website provides details about where these
+components can be acquired.
+Errata
+We have worked really hard to ensure that this book is error free; however, it is
+always possible that some were overlooked. A full list of errata is available on
+each chapter's web page at the companion website. If you find any errors in the
+
+xxx Introduction
+text or in the source code examples, I would be grateful if you could please use
+the companion website to send them to me so that I can update the web page
+errata list and the source code examples in the code repository.
+Digital Content and Source Code
+The primary companion site for this book is www.exploringbeaglebone.com. It
+is maintained by the book's author and contains videos, source code examples,
+and links to further reading. Each chapter has its own individual web page.
+In the unlikely event that the website is unavailable, you can find the code at
+www.wiley.com/go/exploringbeaglebone.
+I have provided all of the source code through GitHub, which allows you
+to download the code to your BeagleBone with one command. You can also
+easily view the code online at tiny.cc/ebb001. Downloading the source code
+to your BeagleBone is as straightforward as typing the following at the Linux
+shell prompt:
+$ git clone https://github.com/derekmolloy/exploringBB.git
+If you have never used Git before, don't worry—it is explained in detail in
+Chapter 3 . Now, on with the adventures
+In this chapter, you are introduced to the BeagleBone platform hardware. The
+chapter focuses on the BeagleBone Black and the various subsystems and physical
+inputs/outputs of the board. In addition, the chapter lists accessories that can
+be very helpful in developing your own BeagleBone‐based projects. By the end
+of this chapter, you should have an appreciation of the power and complexity
+of this computing platform. You should also be aware of the first steps to take
+to protect your board from physical damage.
+Introduction to the Platform
+The BeagleBone is a compact, low‐cost, open‐source Linux computing platform
+that can be used to build complex applications that interface high‐level software
+and low‐level electronic circuits. It is an ideal platform for prototyping project
+and product designs that take advantage of the power and freedom of Linux,
+combined with direct access to input/output pins and buses, allowing you to
+interface with electronics components, modules, and USB devices. The characteristics of the BeagleBone platform are that it
+■ is powerful, as it contains a processor that can perform up to 2 billion
+instructions per second,
+■ is low‐cost, available for as little as $45–$55,
+C H A P T E R
+1
+The BeagleBone Hardware
+
+4 Part I ■ BeagleBone Basics
+■ supports many standard interfaces for electronics devices,
+■ uses little power, running at between 1 W (idle) and 2.3 W (peak),
+■ is expandable through the use of daughterboards and USB devices,
+■ is supported by a huge community of innovators and enthusiasts, and
+■ is open‐hardware and supports open‐software tools and applications.
+The BeagleBone runs the Linux operating system, which means that you can
+use many open‐source software libraries and applications directly with it. Open‐
+source software driver availability also enables you to interface devices such as
+USB cameras, keyboards and Wi‐Fi adapters with your project, without having
+to source proprietary alternatives. Therefore, you have access to comprehensive
+libraries of code that have been built by a talented open‐source community;
+however, it is important to remember that the code typically comes without any
+type of warranty or guarantee. If there are problems, then you have to rely on
+the good nature of the community to resolve them. Of course, you could also
+fix the problems yourself and make the solutions publicly available.
+The BeagleBone platform is formed by the integration of a high‐performance
+microprocessor on a printed circuit board (PCB) and an extensive software ecosystem. The physical PCB is not a complete product; rather it is a prototype reference
+design that you can use to build a complete product. It is an open‐hardware platform,
+meaning that you can download and use the BeagleBone hardware schematics and
+layout directly within your own product design. In fact, despite the impressive
+capability of the BeagleBone platform, it does not fully expose all of the features
+and interfaces of the Texas Instruments Sitara AM335x microprocessor.
+One impressive feature of the BeagleBone is that its functionality can be
+extended with daughterboards, called capes, that connect to the P8 and P9
+headers (the two black 2×23 connector rows in Figure 1-1). You can design your
+wn capes and attach them securely to your BeagleBone using these headers.
+In addition, many capes are available for purchase that can be used to expand
+the functionality of your BeagleBone platform. Some examples of these are
+described toward the end of this chapter.
+The BeagleBone PCBs were designed by Gerald Coley, a co‐founder of the
+BeagleBoard.org Foundation. However, the boards, and several of its capes,
+are manufactured by CircuitCo (www.circuitco.com). The PCB layout for the
+BeagleBone Black was also created by CircuitCo. Recently, Element14 (www
+.element14.com) has begun manufacturing a BeagleBoard.org-compliant version
+of the BeagleBone Black. Therefore, when you purchase a BeagleBone board,
+you are not purchasing it from BeagleBoard.org; rather, BeagleBoard.org is the
+focal point for a community of developers and users.
+N O T E CircuitCo has provided a short video of the BeagleBone Black manufacturing
+process at tiny.cc/ebb101—it highlights the complexity of the device and the
+work that goes into its manufacture.
+Who Should Use the BeagleBone
+Anybody who wishes to transform an engineering concept into a real interactive
+electronics product, project, prototype, or work of art should consider using the
+BeagleBone. That said, integrating high‐level software and low‐level electronics is not an easy task. However, the difficulty involved in an implementation
+depends on the level of sophistication that the project demands.
+The BeagleBone community is working hard to ensure that the BeagleBone
+platform is accessible by everyone who is interested in integrating it into their
+projects, whether they are students, makers, artists, or hobbyists. Tools and
+software development environments, such as Jason Kridner’s BoneScript library
+(Kridner is a co‐founder of BeagleBoard.org and a technical editor of this book)
+and the Cloud9 integrated development environment (IDE), enable users to
+write and build code directly in a web browser that is capable of controlling
+electronics hardware. BoneScript is introduced in Chapter 2 . Developments like
+Blockly (code.google.com/p/blockly) and Snap (snap.berkeley.edu) have
+the potential to be integrated with BoneScript to further improve accessibility
+for new users.
+For more advanced users, with electronics or computing knowledge, the
+BeagleBone platform enables additional development and customization to
+meet specific project needs. Again, such customization is not trivial: You may
+be an electronics expert, but high‐levWhen to Use the BeagleBone
+The BeagleBone is perfectly placed for the integration of high‐level software
+and low‐level electronics in any type of project. Whether you are planning to
+build an automated home management system, robot, smart display, sensor
+network, vending machine, or Internet‐connected work of interactive art, the
+BeagleBone has the processing power to do whatever you can imagine of an
+embedded device.
+The major advantage of the BeagleBone over more traditional embedded
+systems, such as the Arduino, PIC, and AVR microcontrollers, is apparent when
+you leverage the Linux OS for your projects. For example, if you built a home
+automation system using the BeagleBone and you then decided that you wanted
+to make certain information available on the Internet, you could simply install
+the Apache web server. You could then use server‐side scripting or your favorite
+programming language to interface with your home automation system in order
+to capture and share the information. Alternatively, your project might require
+secure remote shell access. In that case, you could install a secure shell (SSH)
+server, simply by using the Linux command sudo apt‐get install sshd (these
+commands are covered in Chapter 2 ). This could potentially save you weeks
+of development work. In addition, you have the comfort of knowing that the
+same software is running securely on millions of machines around the world.
+Linux also provides you with device driver support for many USB peripherals
+and adapters, making it possible for you to connect cameras, Wi‐Fi adapters,
+and other low‐cost consumer peripherals directly to your platform, without the
+need for complex and/or expensive software driver development.
+When You Should Not Use the BeagleBone
+The Linux OS was not designed for real‐time or predictable processing. Its kernel is not preemptive, which means that once the processor begins executing
+kernel code it cannot be interrupted. This would be problematic if, for example,
+you wished to sample a sensor precisely every one millionth of a second. If the
+precise time arises to take a sample and the kernel is busy with a different task,
+then it cannot be interrupted. Therefore, in its default state, the BeagleBone is
+not an ideal platform for real‐time systems applications. Real‐time versions of
+Linux are available, but they are currently targeted at very experienced Linux
+developers. However, the BeagleBone does have an on‐board solution that goes
+some way toward resolving this problem. Within the BeagleBone’s AM335x,
+there are two on‐board microcontrollers, called Programmable Real‐time Units
+(PRUs), which can be programmed for real‐time interfacing applications. This
+is an advanced topic that is described in Chapter 13 .
+There are low‐cost dedicated solutions available for real‐time sampling
+and control tasks (such as the TI Stellaris ARM platform) that may be more
+
+Chapter 1 ■ The BeagleBone Hardware 7
+appropriate. It is also important to remember that you can interconnect such
+real‐time microcontrollers to the BeagleBone via electrical buses (e.g., I2C, UART,
+CAN bus, and Ethernet) and have the BeagleBone act as the central processor
+for a distributed control system. This concept is described in Chapter 9 and
+Chapter 10 .
+The second application type that the BeagleBone platform will find difficult is
+that of playing high‐definition video. The processing overhead of software decoding and playing encoded video streams is immense, and is beyond the capability
+of the BeagleBone at high‐definition video resolutions. The Raspberry Pi (wwwaaaaaaaabbb
+
+
+Tue Aug  2 11:50:06 2016
+Tue Aug  2 11:52:11 2016
+Wed Aug  3 09:53:38 2016
+Wed Aug  3 09:55:42 2016
+Wed Aug  3 10:03:08 2016
+Wed Aug  3 10:07:17 2016
